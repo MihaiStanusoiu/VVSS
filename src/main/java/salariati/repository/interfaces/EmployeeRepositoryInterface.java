@@ -7,7 +7,8 @@ import salariati.model.EmployeeException;
 import salariati.model.Employee;
 
 public interface EmployeeRepositoryInterface {
-	
+
+	boolean isEmployeeSaved(Employee employee);
 	boolean addEmployee(Employee employee) throws EmployeeException;
 	void deleteEmployee(Employee employee);
 	Integer getMaxId();

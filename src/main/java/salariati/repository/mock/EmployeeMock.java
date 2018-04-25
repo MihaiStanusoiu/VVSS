@@ -1,5 +1,8 @@
 package salariati.repository.mock;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -35,12 +38,29 @@ public class EmployeeMock implements EmployeeRepositoryInterface {
 		employeeList.add( Vasile );
 		employeeList.add( Marin );
 	}
-	
+
 	@Override
-	public boolean addEmployee(Employee employee) {
-		if ( employeeValidator.isValid(employee)) {
+	public boolean isEmployeeSaved(Employee employee) {
+		List<Employee> employees = getEmployeeList();
+		for (Employee emp : employees) {
+			if (emp.getId().equals(employee.getId())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public boolean addEmployee(Employee employee) throws EmployeeException{
+		if (isEmployeeSaved(employee)) {
+			throw new EmployeeException("Employee already stored");
+		}
+
+		if( employeeValidator.isValid(employee) ) {
 			employeeList.add(employee);
-			return true;
+		}
+		else {
+			throw new EmployeeException("Invalid employee data");
 		}
 		return false;
 	}

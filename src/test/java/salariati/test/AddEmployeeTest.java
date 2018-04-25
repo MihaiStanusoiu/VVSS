@@ -19,12 +19,25 @@ public class AddEmployeeTest {
 	private EmployeeRepositoryInterface employeeRepository;
 	private EmployeeController controller;
 	private EmployeeValidator employeeValidator;
-	
+	private Employee employee1;
+	private Employee employee2;
+	private Employee employee3;
+	private Employee employee4;
+	private Employee employee5;
+	private Employee employee6;
+	private Employee employee7;
+
 	@Before
 	public void setUp() {
 		employeeRepository = new EmployeeMock();
 		controller         = new EmployeeController(employeeRepository);
 		employeeValidator  = new EmployeeValidator();
+		employee1 = new Employee("Andrei", "Pop", "1111000000123", DidacticFunction.TEACHER, "5000");
+		employee2 = new Employee("", "Pop", "1111000000123", DidacticFunction.TEACHER, "5000");
+		employee3 = new Employee("An", "Pop", "1111000000123", DidacticFunction.TEACHER, "5000");
+		employee4 = new Employee("Andrei", "Pop", "1111000000123", DidacticFunction.TEACHER, "0");
+		employee5 = new Employee("Andrei", "Pop", "1111000000123", DidacticFunction.TEACHER, "1");
+		employee6 = new Employee("Andrei", "Pop", "1111000000123", DidacticFunction.TEACHER, "-1");
 	}
 	
 	@Test
@@ -35,14 +48,46 @@ public class AddEmployeeTest {
 	
 	@Test
 	public void testAddNewEmployee() {
-		Employee newEmployee = new Employee("Ion", "ValidLastName", "1910509055057", DidacticFunction.ASISTENT, "3000");
-		assertTrue(employeeValidator.isValid(newEmployee));
 		try {
-			controller.addEmployee(newEmployee);
-			assertEquals(7, controller.getEmployeesList().size());
-			assertTrue(newEmployee.equals(controller.getEmployeesList().get(controller.getEmployeesList().size() - 1)));
-		} catch (EmployeeException ex) {
+			controller.addEmployee(employee1);
+			assertTrue(true);
+		} catch (EmployeeException e) {
 			assertTrue(false);
+		}
+
+		try {
+			controller.addEmployee(employee2);
+			assertTrue(false);
+		} catch (EmployeeException e) {
+			assertTrue(e.getMessage().equals("Invalid employee data"));
+		}
+
+		try {
+			controller.addEmployee(employee3);
+			assertTrue(false);
+		} catch (EmployeeException e) {
+			assertTrue(e.getMessage().equals("Invalid employee data"));
+		}
+
+		try {
+			controller.addEmployee(employee4);
+			assertTrue(false);
+		} catch (EmployeeException e) {
+			assertTrue(e.getMessage().equals("Invalid employee data"));
+		}
+
+		try {
+			controller.addEmployee(employee5);
+			assertTrue(true);
+		} catch (EmployeeException e) {
+			assertTrue(false);
+		}
+
+		try {
+			controller.addEmployee(employee6);
+			assertTrue(false);
+		} catch (EmployeeException e) {
+			assertTrue(e.getMessage().equals("Invalid employee data"));
 		}
 	}
 

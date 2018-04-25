@@ -22,7 +22,7 @@ public class EmployeeRepositoryFromFile implements EmployeeRepositoryInterface {
 		this.employeeDBFile = employeeDBFile;
 	}
 
-	private boolean isEmployeeSaved(Employee employee) {
+	public boolean isEmployeeSaved(Employee employee) {
 		List<Employee> employees = getEmployeeList();
 		for (Employee emp : employees) {
 			if (emp.getId().equals(employee.getId())) {
@@ -61,6 +61,9 @@ public class EmployeeRepositoryFromFile implements EmployeeRepositoryInterface {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
+		else {
+			throw new EmployeeException("Invalid employee data");
 		}
 		return false;
 	}
