@@ -10,6 +10,7 @@ public interface EmployeeRepositoryInterface {
 	
 	boolean addEmployee(Employee employee) throws EmployeeException;
 	void deleteEmployee(Employee employee);
+	Integer getMaxId();
 	void modifyEmployee(Employee oldEmployee, Employee newEmployee);
 	List<Employee> getEmployeeList();
 	Employee getEmployeeById(Integer id) throws EmployeeException;

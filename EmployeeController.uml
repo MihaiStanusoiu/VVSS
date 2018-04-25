@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>salariati.controller.EmployeeController</OriginalElement>
+  <nodes>
+    <node x="409.05549812030074" y="0.0">salariati.model.DidacticFunction</node>
+    <node x="426.0" y="884.0">salariati.controller.EmployeeController</node>
+    <node x="472.28822838345866" y="619.0">salariati.repository.interfaces.EmployeeRepositoryInterface</node>
+    <node x="899.2882283834587" y="862.0">salariati.repository.implementations.EmployeeRepositoryFromFile</node>
+    <node x="726.1500000000001" y="1127.0">salariati.main.StartApp</node>
+    <node x="1104.9136513157896" y="90.0">salariati.model.EmployeeException</node>
+    <node x="438.55549812030074" y="190.0">salariati.model.Employee</node>
+    <node x="0.0" y="873.0">salariati.repository.mock.EmployeeMock</node>
+    <node x="494.05549812030074" y="79.0">salariati.model.EmployeeValidator</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="salariati.repository.interfaces.EmployeeRepositoryInterface" target="salariati.model.Employee">
+      <point x="0.0" y="-91.5" />
+      <point x="675.2882283834587" y="599.0" />
+      <point x="602.2429981203007" y="599.0" />
+      <point x="18.1875" y="179.5" />
+    </edge>
+    <edge source="salariati.repository.implementations.EmployeeRepositoryFromFile" target="salariati.model.EmployeeException">
+      <point x="174.0" y="-102.5" />
+      <point x="1276.2882283834588" y="832.0" />
+      <point x="1205.7882283834588" y="832.0" />
+      <point x="1205.7882283834588" y="160.0" />
+      <point x="1199.2886513157896" y="160.0" />
+      <point x="18.875" y="14.5" />
+    </edge>
+    <edge source="salariati.repository.mock.EmployeeMock" target="salariati.repository.interfaces.EmployeeRepositoryInterface">
+      <point x="174.0" y="-91.5" />
+      <point x="377.0" y="842.0" />
+      <point x="512.8882283834587" y="842.0" />
+      <point x="-162.39999999999998" y="91.5" />
+    </edge>
+    <edge source="salariati.model.EmployeeValidator" target="salariati.model.Employee">
+      <point x="29.85714285714289" y="25.5" />
+      <point x="628.4126409774436" y="170.0" />
+      <point x="656.8054981203007" y="170.0" />
+      <point x="72.75" y="-179.5" />
+    </edge>
+    <edge source="salariati.repository.mock.EmployeeMock" target="salariati.model.Employee">
+      <point x="0.0" y="-91.5" />
+      <point x="203.0" y="842.0" />
+      <point x="178.55549812030074" y="842.0" />
+      <point x="178.55549812030074" y="569.0" />
+      <point x="456.74299812030074" y="569.0" />
+      <point x="-127.3125" y="179.5" />
+    </edge>
+    <edge source="salariati.main.StartApp" target="salariati.model.EmployeeException">
+      <point x="78.75" y="-80.5" />
+      <point x="899.4000000000001" y="1107.0" />
+      <point x="1315.7882283834588" y="1107.0" />
+      <point x="1315.7882283834588" y="170.0" />
+      <point x="1237.0386513157896" y="170.0" />
+      <point x="56.625" y="14.5" />
+    </edge>
+    <edge source="salariati.repository.implementations.EmployeeRepositoryFromFile" target="salariati.model.EmployeeValidator">
+      <point x="58.0" y="-102.5" />
+      <point x="1160.2882283834588" y="842.0" />
+      <point x="1152.3054981203009" y="842.0" />
+      <point x="1152.3054981203009" y="150.0" />
+      <point x="688.1269266917293" y="150.0" />
+      <point x="89.57142857142856" y="25.5" />
+    </edge>
+    <edge source="salariati.main.StartApp" target="salariati.repository.implementations.EmployeeRepositoryFromFile">
+      <point x="47.25" y="-80.5" />
+      <point x="867.9000000000001" y="1097.0" />
+      <point x="1102.2882283834588" y="1097.0" />
+      <point x="0.0" y="102.5" />
+    </edge>
+    <edge source="salariati.model.EmployeeValidator" target="salariati.model.DidacticFunction">
+      <point x="0.0" y="-25.5" />
+      <point x="598.5554981203007" y="54.0" />
+      <point x="529.8054981203007" y="54.0" />
+      <point x="51.75" y="14.5" />
+    </edge>
+    <edge source="salariati.repository.mock.EmployeeMock" target="salariati.model.DidacticFunction">
+      <point x="-174.0" y="-91.5" />
+      <point x="29.0" y="822.0" />
+      <point x="145.55549812030074" y="822.0" />
+      <point x="145.55549812030074" y="54.0" />
+      <point x="426.30549812030074" y="54.0" />
+      <point x="-51.75" y="14.5" />
+    </edge>
+    <edge source="salariati.model.Employee" target="salariati.model.DidacticFunction">
+      <point x="-72.75" y="-179.5" />
+      <point x="511.30549812030074" y="150.0" />
+      <point x="483.55549812030074" y="150.0" />
+      <point x="483.55549812030074" y="54.0" />
+      <point x="495.30549812030074" y="54.0" />
+      <point x="17.25" y="14.5" />
+    </edge>
+    <edge source="salariati.model.Employee" target="salariati.model.EmployeeException">
+      <point x="121.25" y="-179.5" />
+      <point x="705.3054981203007" y="170.0" />
+      <point x="1123.7886513157896" y="170.0" />
+      <point x="-56.625" y="14.5" />
+    </edge>
+    <edge source="salariati.main.StartApp" target="salariati.model.Employee">
+      <point x="15.75" y="-80.5" />
+      <point x="836.4000000000001" y="1087.0" />
+      <point x="888.7882283834587" y="1087.0" />
+      <point x="888.7882283834587" y="589.0" />
+      <point x="638.6179981203007" y="589.0" />
+      <point x="54.5625" y="179.5" />
+    </edge>
+    <edge source="salariati.main.StartApp" target="salariati.repository.interfaces.EmployeeRepositoryInterface">
+      <point x="-15.75" y="-80.5" />
+      <point x="804.9000000000001" y="1107.0" />
+      <point x="820.6882283834586" y="1107.0" />
+      <point x="820.6882283834586" y="842.0" />
+      <point x="756.4882283834586" y="842.0" />
+      <point x="81.19999999999993" y="91.5" />
+    </edge>
+    <edge source="salariati.main.StartApp" target="salariati.controller.EmployeeController">
+      <point x="-78.75" y="-80.5" />
+      <point x="741.9000000000001" y="1107.0" />
+      <point x="505.5" y="1107.0" />
+      <point x="-79.5" y="80.5" />
+    </edge>
+    <edge source="salariati.controller.EmployeeController" target="salariati.repository.interfaces.EmployeeRepositoryInterface">
+      <point x="106.0" y="-80.5" />
+      <point x="691.0" y="842.0" />
+      <point x="675.2882283834587" y="842.0" />
+      <point x="0.0" y="91.5" />
+    </edge>
+    <edge source="salariati.repository.implementations.EmployeeRepositoryFromFile" target="salariati.model.Employee">
+      <point x="-116.0" y="-102.5" />
+      <point x="986.2882283834587" y="842.0" />
+      <point x="1034.423519736842" y="842.0" />
+      <point x="1034.423519736842" y="579.0" />
+      <point x="674.9929981203007" y="579.0" />
+      <point x="90.9375" y="179.5" />
+    </edge>
+    <edge source="salariati.repository.mock.EmployeeMock" target="salariati.model.EmployeeValidator">
+      <point x="-58.0" y="-91.5" />
+      <point x="145.0" y="842.0" />
+      <point x="167.55549812030074" y="842.0" />
+      <point x="167.55549812030074" y="170.0" />
+      <point x="538.841212406015" y="170.0" />
+      <point x="-59.71428571428578" y="25.5" />
+    </edge>
+    <edge source="salariati.model.Employee" target="salariati.model.EmployeeValidator">
+      <point x="24.25" y="-179.5" />
+      <point x="608.3054981203007" y="170.0" />
+      <point x="598.5554981203007" y="170.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="salariati.controller.EmployeeController" target="salariati.model.Employee">
+      <point x="-106.0" y="-80.5" />
+      <point x="479.0" y="832.0" />
+      <point x="383.9136513157895" y="832.0" />
+      <point x="383.9136513157895" y="599.0" />
+      <point x="565.8679981203007" y="599.0" />
+      <point x="-18.1875" y="179.5" />
+    </edge>
+    <edge source="salariati.repository.implementations.EmployeeRepositoryFromFile" target="salariati.repository.interfaces.EmployeeRepositoryInterface">
+      <point x="-174.0" y="-102.5" />
+      <point x="928.2882283834587" y="842.0" />
+      <point x="837.6882283834585" y="842.0" />
+      <point x="162.39999999999986" y="91.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8" x="489.5" y="583.875" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

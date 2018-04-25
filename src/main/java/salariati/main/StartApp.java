@@ -1,11 +1,13 @@
 package salariati.main;
 
+import salariati.model.DidacticFunction;
 import salariati.model.EmployeeException;
 import salariati.model.Employee;
 import salariati.repository.implementations.EmployeeRepositoryFromFile;
 import salariati.repository.interfaces.EmployeeRepositoryInterface;
 import salariati.controller.EmployeeController;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,16 +21,33 @@ public class StartApp {
 	public static EmployeeController employeeController = new EmployeeController(employeeRepository);
 
 	public static void showAddMenu() {
-		System.out.println("\tEnter employee data (format: id;firstName;lastName;cnp;didacticFunction;salary )");
 		Scanner scanner = new Scanner(System.in);
-		String employeeString = scanner.next();
+        System.out.println("\tEnter employee first name: ");
+        String firstName = scanner.nextLine();
+		System.out.println("\tEnter employee last name: ");
+		String lastName = scanner.nextLine();
+        System.out.println("\tEnter employee CNP: ");
+        String cnp = scanner.next();
+        System.out.println("\tEnter employee didactic function: ");
+        String didacticFunction = scanner.next();
+        System.out.println("\tEnter employee salary: ");
+        String salaryString = scanner.next();
 		try {
-			Employee employee = Employee.getEmployeeFromString(employeeString);
+			Employee employee = new Employee(
+			        firstName,
+					lastName,
+					cnp,
+					DidacticFunction.valueOf(didacticFunction),
+					salaryString
+                    );
 			employeeController.addEmployee(employee);
 			System.out.println("Employee added successfully");
 		}
 		catch (EmployeeException ex) {
-			System.err.println(ex.toString());
+			System.out.println("Invalid employee data");
+		}
+		catch (IllegalArgumentException ex) {
+			System.out.println("Invalid employee data");
 		}
 		finally {
 			scanner.close();

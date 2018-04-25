@@ -21,12 +21,12 @@ public class EmployeeMock implements EmployeeRepositoryInterface {
 		employeeValidator = new EmployeeValidator();
 		employeeList = new ArrayList<Employee>();
 		
-		Employee Ionel   = new Employee("Ion", "Pacuraru", "1234567890876", DidacticFunction.ASISTENT, "2500");
-		Employee Mihai   = new Employee("Ion", "Dumitrescu", "1234567890876", DidacticFunction.LECTURER, "2500");
-		Employee Ionela  = new Employee("Ion", "Ionescu", "1234567890876", DidacticFunction.LECTURER, "2500");
-		Employee Mihaela = new Employee("Ion", "Pacuraru", "1234567890876", DidacticFunction.ASISTENT, "2500");
-		Employee Vasile  = new Employee("Ion", "Georgescu", "1234567890876", DidacticFunction.TEACHER,  "2500");
-		Employee Marin   = new Employee("Ion", "Puscas", "1234567890876", DidacticFunction.TEACHER,  "2500");
+		Employee Ionel   = new Employee(1, "Ion", "Pacuraru", "1234567890876", DidacticFunction.ASISTENT, "2500");
+		Employee Mihai   = new Employee(2, "Ion", "Dumitrescu", "1234567890876", DidacticFunction.LECTURER, "2500");
+		Employee Ionela  = new Employee(3, "Ion", "Ionescu", "1234567890876", DidacticFunction.LECTURER, "2500");
+		Employee Mihaela = new Employee(4, "Ion", "Pacuraru", "1234567890876", DidacticFunction.ASISTENT, "2500");
+		Employee Vasile  = new Employee(5, "Ion", "Georgescu", "1234567890876", DidacticFunction.TEACHER,  "2500");
+		Employee Marin   = new Employee(6, "Ion", "Puscas", "1234567890876", DidacticFunction.TEACHER,  "2500");
 		
 		employeeList.add( Ionel );
 		employeeList.add( Mihai );
@@ -51,13 +51,32 @@ public class EmployeeMock implements EmployeeRepositoryInterface {
 	}
 
 	@Override
+	public Integer getMaxId() {
+		List<Employee> employees = getEmployeeList();
+		Integer max = 0;
+		for (Employee employee : employees) {
+			if (employee.getId() > max) {
+				max = employee.getId();
+			}
+		}
+		return max;
+	}
+
+	@Override
 	public void modifyEmployee(Employee oldEmployee, Employee newEmployee) {
 		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public Employee getEmployeeById(Integer id) throws EmployeeException {
-		return null;
+		List<Employee> employees = getEmployeeList();
+		for (Employee employee : employees) {
+			if (employee.getId().equals(id)) {
+				return employee;
+			}
+		}
+
+		throw new EmployeeException("Employee with id " + id + " not stored");
 	}
 
 	@Override

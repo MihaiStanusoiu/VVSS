@@ -33,6 +33,18 @@ public class EmployeeRepositoryFromFile implements EmployeeRepositoryInterface {
 	}
 
 	@Override
+	public Integer getMaxId() {
+	    List<Employee> employees = getEmployeeList();
+	    Integer max = 0;
+	    for (Employee employee : employees) {
+	        if (employee.getId() > max) {
+	            max = employee.getId();
+            }
+        }
+        return max;
+    }
+
+	@Override
 	public boolean addEmployee(Employee employee) throws EmployeeException {
 		if (isEmployeeSaved(employee)) {
 			throw new EmployeeException("Employee already stored");

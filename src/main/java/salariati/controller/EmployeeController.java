@@ -16,6 +16,7 @@ public class EmployeeController {
 	}
 	
 	public void addEmployee(Employee employee) throws EmployeeException {
+		employee.setId(employeeRepository.getMaxId() + 1);
 		employeeRepository.addEmployee(employee);
 	}
 
