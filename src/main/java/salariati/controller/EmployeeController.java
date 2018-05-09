@@ -24,15 +24,15 @@ public class EmployeeController {
 		return employeeRepository.getEmployeeById(id);
 	}
 
-	public List<Employee> getEmployeesList() {
+	public List<Employee> getEmployeesList() throws EmployeeException {
 		return employeeRepository.getEmployeeList();
 	}
 	
-	public void modifyEmployee(Employee oldEmployee, Employee newEmployee) {
+	public void modifyEmployee(Employee oldEmployee, Employee newEmployee) throws EmployeeException{
 		employeeRepository.modifyEmployee(oldEmployee, newEmployee);
 	}
 
-	public List<Employee> getEmployeesSortedBySalary() {
+	public List<Employee> getEmployeesSortedBySalary() throws EmployeeException{
 		Comparator<Employee> comparator = new Comparator<Employee>() {
 			@Override
 			public int compare(Employee o1, Employee o2) {
@@ -50,7 +50,7 @@ public class EmployeeController {
 		return employeeRepository.getEmployeesSorted(comparator);
 	}
 
-	public void deleteEmployee(Employee employee) {
+	public void deleteEmployee(Employee employee) throws EmployeeException {
 		employeeRepository.deleteEmployee(employee);
 	}
 	

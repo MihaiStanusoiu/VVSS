@@ -22,7 +22,7 @@ public class EmployeeRepositoryFromFile implements EmployeeRepositoryInterface {
 		this.employeeDBFile = employeeDBFile;
 	}
 
-	public boolean isEmployeeSaved(Employee employee) {
+	public boolean isEmployeeSaved(Employee employee) throws EmployeeException{
 		List<Employee> employees = getEmployeeList();
 		for (Employee emp : employees) {
 			if (emp.getId().equals(employee.getId())) {
@@ -33,7 +33,7 @@ public class EmployeeRepositoryFromFile implements EmployeeRepositoryInterface {
 	}
 
 	@Override
-	public Integer getMaxId() {
+	public Integer getMaxId() throws EmployeeException {
 	    List<Employee> employees = getEmployeeList();
 	    Integer max = 0;
 	    for (Employee employee : employees) {
@@ -69,7 +69,11 @@ public class EmployeeRepositoryFromFile implements EmployeeRepositoryInterface {
 	}
 
 	@Override
-	public void deleteEmployee(Employee employee) {
+	public void deleteEmployee(Employee employee) throws EmployeeException{
+		if (!isEmployeeSaved(employee)) {
+			throw new EmployeeException("Employee with id " + employee.getId() + " not stored");
+		}
+
 		List<Employee> employees = getEmployeeList();
 		employees.remove(employee);
 
@@ -81,20 +85,15 @@ public class EmployeeRepositoryFromFile implements EmployeeRepositoryInterface {
 			}
 
 		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (EmployeeException e) {
+			throw new EmployeeException("Invalid repository file");
 		}
-
 	}
 
 	@Override
-	public void modifyEmployee(Employee oldEmployee, Employee newEmployee) {
-		try {
-			deleteEmployee(oldEmployee);
-			addEmployee(newEmployee);
-		} catch (EmployeeException e) {
-		}
-		}
+	public void modifyEmployee(Employee oldEmployee, Employee newEmployee) throws EmployeeException {
+		deleteEmployee(oldEmployee);
+		addEmployee(newEmployee);
+	}
 
 	@Override
 	public Employee getEmployeeById(Integer id) throws EmployeeException {
@@ -109,7 +108,7 @@ public class EmployeeRepositoryFromFile implements EmployeeRepositoryInterface {
 	}
 
 	@Override
-	public List<Employee> getEmployeeList() {
+	public List<Employee> getEmployeeList() throws EmployeeException{
 		List<Employee> employeeList = new ArrayList<Employee>();
 		
 		BufferedReader br = null;
@@ -127,15 +126,15 @@ public class EmployeeRepositoryFromFile implements EmployeeRepositoryInterface {
 				}
 			}
 		} catch (FileNotFoundException e) {
-			System.err.println("Error while reading: " + e);
+			throw new EmployeeException("Error at reading repository file");
 		} catch (IOException e) {
-			System.err.println("Error while reading: " + e);
+			throw new EmployeeException("Error at reading repository file");
 		} finally {
 			if (br != null)
 				try {
 					br.close();
 				} catch (IOException e) {
-					System.err.println("Error while closing the file: " + e);
+					throw new EmployeeException("Error at reading repository file");
 				}
 		}
 		
@@ -151,7 +150,7 @@ public class EmployeeRepositoryFromFile implements EmployeeRepositoryInterface {
 	}
 
     @Override
-    public List<Employee> getEmployeesSorted(Comparator<Employee> comparator) {
+    public List<Employee> getEmployeesSorted(Comparator<Employee> comparator) throws EmployeeException{
         List<Employee> employees = getEmployeeList();
         Collections.sort(employees, comparator);
 

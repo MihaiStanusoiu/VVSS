@@ -1,0 +1,242 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: EmployeeRepositoryFromFile</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">salariati.repository.implementations</a> ]
+</div>
+
+<h1>Coverage Summary for Class: EmployeeRepositoryFromFile (salariati.repository.implementations)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EmployeeRepositoryFromFile</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    70%
+  </span>
+  <span class="absValue">
+    (7/ 10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    63.8%
+  </span>
+  <span class="absValue">
+    (51/ 80)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package salariati.repository.implementations;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.io.*;
+<i>4</i>&nbsp;import java.util.ArrayList;
+<i>5</i>&nbsp;import java.util.Collections;
+<i>6</i>&nbsp;import java.util.Comparator;
+<i>7</i>&nbsp;import java.util.List;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;import salariati.model.EmployeeException;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;import salariati.model.Employee;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import salariati.repository.interfaces.EmployeeRepositoryInterface;
+<i>14</i>&nbsp;import salariati.model.EmployeeValidator;
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;public class EmployeeRepositoryFromFile implements EmployeeRepositoryInterface {
+<i>17</i>&nbsp;	
+<i>18</i>&nbsp;	private String employeeDBFile;
+<b class="fc"><i>19</i>&nbsp;	private EmployeeValidator employeeValidator = new EmployeeValidator();</b>
+<i>20</i>&nbsp;
+<b class="fc"><i>21</i>&nbsp;	public EmployeeRepositoryFromFile(String employeeDBFile) {</b>
+<b class="fc"><i>22</i>&nbsp;		this.employeeDBFile = employeeDBFile;</b>
+<b class="fc"><i>23</i>&nbsp;	}</b>
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;	public boolean isEmployeeSaved(Employee employee) throws EmployeeException{
+<b class="fc"><i>26</i>&nbsp;		List&lt;Employee&gt; employees = getEmployeeList();</b>
+<b class="fc"><i>27</i>&nbsp;		for (Employee emp : employees) {</b>
+<b class="fc"><i>28</i>&nbsp;			if (emp.getId().equals(employee.getId())) {</b>
+<b class="fc"><i>29</i>&nbsp;				return true;</b>
+<i>30</i>&nbsp;			}
+<b class="fc"><i>31</i>&nbsp;		}</b>
+<b class="fc"><i>32</i>&nbsp;		return false;</b>
+<i>33</i>&nbsp;	}
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;	@Override
+<i>36</i>&nbsp;	public Integer getMaxId() throws EmployeeException {
+<b class="nc"><i>37</i>&nbsp;	    List&lt;Employee&gt; employees = getEmployeeList();</b>
+<b class="nc"><i>38</i>&nbsp;	    Integer max = 0;</b>
+<b class="nc"><i>39</i>&nbsp;	    for (Employee employee : employees) {</b>
+<b class="nc"><i>40</i>&nbsp;	        if (employee.getId() &gt; max) {</b>
+<b class="nc"><i>41</i>&nbsp;	            max = employee.getId();</b>
+<i>42</i>&nbsp;            }
+<b class="nc"><i>43</i>&nbsp;        }</b>
+<b class="nc"><i>44</i>&nbsp;        return max;</b>
+<i>45</i>&nbsp;    }
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;	@Override
+<i>48</i>&nbsp;	public boolean addEmployee(Employee employee) throws EmployeeException {
+<b class="fc"><i>49</i>&nbsp;		if (isEmployeeSaved(employee)) {</b>
+<b class="nc"><i>50</i>&nbsp;			throw new EmployeeException(&quot;Employee already stored&quot;);</b>
+<i>51</i>&nbsp;		}
+<i>52</i>&nbsp;
+<b class="fc"><i>53</i>&nbsp;		if( employeeValidator.isValid(employee) ) {</b>
+<b class="fc"><i>54</i>&nbsp;			BufferedWriter bw = null;</b>
+<i>55</i>&nbsp;			try {
+<b class="fc"><i>56</i>&nbsp;				bw = new BufferedWriter(new FileWriter(employeeDBFile, true));</b>
+<b class="fc"><i>57</i>&nbsp;				bw.write(employee.toString());</b>
+<b class="fc"><i>58</i>&nbsp;				bw.newLine();</b>
+<b class="fc"><i>59</i>&nbsp;				bw.close();</b>
+<b class="fc"><i>60</i>&nbsp;				return true;</b>
+<b class="nc"><i>61</i>&nbsp;			} catch (IOException e) {</b>
+<b class="nc"><i>62</i>&nbsp;				e.printStackTrace();</b>
+<i>63</i>&nbsp;			}
+<b class="nc"><i>64</i>&nbsp;		}</b>
+<i>65</i>&nbsp;		else {
+<b class="nc"><i>66</i>&nbsp;			throw new EmployeeException(&quot;Invalid employee data&quot;);</b>
+<i>67</i>&nbsp;		}
+<b class="nc"><i>68</i>&nbsp;		return false;</b>
+<i>69</i>&nbsp;	}
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;	@Override
+<i>72</i>&nbsp;	public void deleteEmployee(Employee employee) throws EmployeeException{
+<b class="fc"><i>73</i>&nbsp;		if (!isEmployeeSaved(employee)) {</b>
+<b class="fc"><i>74</i>&nbsp;			throw new EmployeeException(&quot;Employee with id &quot; + employee.getId() + &quot; not stored&quot;);</b>
+<i>75</i>&nbsp;		}
+<i>76</i>&nbsp;
+<b class="fc"><i>77</i>&nbsp;		List&lt;Employee&gt; employees = getEmployeeList();</b>
+<b class="fc"><i>78</i>&nbsp;		employees.remove(employee);</b>
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;		try {
+<b class="fc"><i>81</i>&nbsp;			BufferedWriter bw = new BufferedWriter(new FileWriter(employeeDBFile, false));</b>
+<b class="fc"><i>82</i>&nbsp;			bw.close();</b>
+<b class="fc"><i>83</i>&nbsp;			for (Employee emp : employees) {</b>
+<b class="fc"><i>84</i>&nbsp;				addEmployee(emp);</b>
+<b class="fc"><i>85</i>&nbsp;			}</b>
+<i>86</i>&nbsp;
+<b class="nc"><i>87</i>&nbsp;		} catch (IOException e) {</b>
+<b class="nc"><i>88</i>&nbsp;			throw new EmployeeException(&quot;Invalid repository file&quot;);</b>
+<b class="fc"><i>89</i>&nbsp;		}</b>
+<b class="fc"><i>90</i>&nbsp;	}</b>
+<i>91</i>&nbsp;
+<i>92</i>&nbsp;	@Override
+<i>93</i>&nbsp;	public void modifyEmployee(Employee oldEmployee, Employee newEmployee) throws EmployeeException {
+<b class="fc"><i>94</i>&nbsp;		deleteEmployee(oldEmployee);</b>
+<b class="fc"><i>95</i>&nbsp;		addEmployee(newEmployee);</b>
+<b class="fc"><i>96</i>&nbsp;	}</b>
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;	@Override
+<i>99</i>&nbsp;	public Employee getEmployeeById(Integer id) throws EmployeeException {
+<b class="fc"><i>100</i>&nbsp;		List&lt;Employee&gt; employees = getEmployeeList();</b>
+<b class="fc"><i>101</i>&nbsp;		for (Employee employee : employees) {</b>
+<b class="fc"><i>102</i>&nbsp;			if (employee.getId().equals(id)) {</b>
+<b class="fc"><i>103</i>&nbsp;				return employee;</b>
+<i>104</i>&nbsp;			}
+<b class="fc"><i>105</i>&nbsp;		}</b>
+<i>106</i>&nbsp;
+<b class="nc"><i>107</i>&nbsp;		throw new EmployeeException(&quot;Employee with id &quot; + id + &quot; not stored&quot;);</b>
+<i>108</i>&nbsp;	}
+<i>109</i>&nbsp;
+<i>110</i>&nbsp;	@Override
+<i>111</i>&nbsp;	public List&lt;Employee&gt; getEmployeeList() throws EmployeeException{
+<b class="fc"><i>112</i>&nbsp;		List&lt;Employee&gt; employeeList = new ArrayList&lt;Employee&gt;();</b>
+<i>113</i>&nbsp;		
+<b class="fc"><i>114</i>&nbsp;		BufferedReader br = null;</b>
+<i>115</i>&nbsp;		try {
+<b class="fc"><i>116</i>&nbsp;			br = new BufferedReader(new FileReader(employeeDBFile));</b>
+<i>117</i>&nbsp;			String line;
+<b class="fc"><i>118</i>&nbsp;			int counter = 0;</b>
+<b class="fc"><i>119</i>&nbsp;			while ((line = br.readLine()) != null) {</b>
+<b class="fc"><i>120</i>&nbsp;				Employee employee = new Employee();</b>
+<i>121</i>&nbsp;				try {
+<b class="fc"><i>122</i>&nbsp;					employee = Employee.getEmployeeFromString(line);</b>
+<b class="fc"><i>123</i>&nbsp;					employeeList.add(employee);</b>
+<b class="nc"><i>124</i>&nbsp;				} catch(EmployeeException ex) {</b>
+<b class="nc"><i>125</i>&nbsp;					System.err.println(ex.toString() + &quot; at line &quot; + counter);</b>
+<b class="fc"><i>126</i>&nbsp;				}</b>
+<b class="fc"><i>127</i>&nbsp;			}</b>
+<b class="nc"><i>128</i>&nbsp;		} catch (FileNotFoundException e) {</b>
+<b class="nc"><i>129</i>&nbsp;			throw new EmployeeException(&quot;Error at reading repository file&quot;);</b>
+<b class="nc"><i>130</i>&nbsp;		} catch (IOException e) {</b>
+<b class="nc"><i>131</i>&nbsp;			throw new EmployeeException(&quot;Error at reading repository file&quot;);</b>
+<i>132</i>&nbsp;		} finally {
+<b class="fc"><i>133</i>&nbsp;			if (br != null)</b>
+<i>134</i>&nbsp;				try {
+<b class="fc"><i>135</i>&nbsp;					br.close();</b>
+<b class="nc"><i>136</i>&nbsp;				} catch (IOException e) {</b>
+<b class="nc"><i>137</i>&nbsp;					throw new EmployeeException(&quot;Error at reading repository file&quot;);</b>
+<b class="fc"><i>138</i>&nbsp;				}</b>
+<i>139</i>&nbsp;		}
+<i>140</i>&nbsp;		
+<b class="fc"><i>141</i>&nbsp;		return employeeList;</b>
+<i>142</i>&nbsp;	}
+<i>143</i>&nbsp;
+<i>144</i>&nbsp;
+<i>145</i>&nbsp;	@Override
+<i>146</i>&nbsp;	public List&lt;Employee&gt; getEmployeeByCriteria(String criteria) {
+<b class="nc"><i>147</i>&nbsp;		List&lt;Employee&gt; employeeList = new ArrayList&lt;Employee&gt;();</b>
+<i>148</i>&nbsp;		
+<b class="nc"><i>149</i>&nbsp;		return employeeList;</b>
+<i>150</i>&nbsp;	}
+<i>151</i>&nbsp;
+<i>152</i>&nbsp;    @Override
+<i>153</i>&nbsp;    public List&lt;Employee&gt; getEmployeesSorted(Comparator&lt;Employee&gt; comparator) throws EmployeeException{
+<b class="nc"><i>154</i>&nbsp;        List&lt;Employee&gt; employees = getEmployeeList();</b>
+<b class="nc"><i>155</i>&nbsp;        Collections.sort(employees, comparator);</b>
+<i>156</i>&nbsp;
+<b class="nc"><i>157</i>&nbsp;        return employees;</b>
+<i>158</i>&nbsp;    }
+<i>159</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-05-08 22:58</div>
+</div>
+</body>
+</html>

@@ -85,23 +85,33 @@ public class StartApp {
 	}
 
 	public static void showList() {
-		List<Employee> employees = employeeController.getEmployeesList();
-		System.out.printf("List of employees:");
-		System.out.println();
-		for (Employee employee : employees) {
-			System.out.println(employee.toString());
+		try {
+			List<Employee> employees = employeeController.getEmployeesList();
+			System.out.printf("List of employees:");
+			System.out.println();
+			for (Employee employee : employees) {
+				System.out.println(employee.toString());
+			}
+			System.out.println();
 		}
-		System.out.println();
+		catch (EmployeeException ex) {
+			System.err.println(ex.toString());
+		}
 	}
 
 	public static void showSortedList() {
-		List<Employee> employees = employeeController.getEmployeesSortedBySalary();
-		System.out.printf("List of employees sorted by salary:");
-		System.out.println();
-		for (Employee employee : employees) {
-			System.out.println(employee.toString());
+		try {
+			List<Employee> employees = employeeController.getEmployeesSortedBySalary();
+			System.out.printf("List of employees sorted by salary:");
+			System.out.println();
+			for (Employee employee : employees) {
+				System.out.println(employee.toString());
+			}
+			System.out.println();
 		}
-		System.out.println();
+		catch (EmployeeException ex) {
+			System.err.println(ex.toString());
+		}
 	}
 
 	public static void showMainMenu() {
