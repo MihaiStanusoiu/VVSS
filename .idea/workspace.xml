@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b71d2ec7-d8f2-4f21-ac72-2969baf3bc86" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProiectSalariati.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/salariati/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/salariati/controller/EmployeeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/employees.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/employees.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/salariati/controller/EmployeeController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/salariati/controller/EmployeeController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/salariati/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/salariati/controller/EmployeeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/salariati/main/StartApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/salariati/main/StartApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/salariati/repository/implementations/EmployeeRepositoryFromFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/salariati/repository/implementations/EmployeeRepositoryFromFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/salariati/test/BigBangTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/salariati/test/BigBangTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/salariati/test/BigBangTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/salariati/test/BigBangTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,7 +21,7 @@
       <file leaf-file-name="AddEmployeeTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/salariati/test/AddEmployeeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="629">
               <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -55,8 +45,8 @@
       <file leaf-file-name="BigBangTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/salariati/test/BigBangTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="16" column="24" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="24" />
+            <state relative-caret-position="544">
+              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -67,7 +57,7 @@
       <file leaf-file-name="EmployeeRepositoryFromFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/salariati/repository/implementations/EmployeeRepositoryFromFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1581">
+            <state relative-caret-position="357">
               <caret line="106" selection-start-line="106" selection-end-line="106" />
             </state>
           </provider>
@@ -88,7 +78,7 @@
       <file leaf-file-name="EmployeeController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/salariati/controller/EmployeeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="85">
               <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
             </state>
           </provider>
@@ -154,9 +144,9 @@
       <list>
         <option value="$PROJECT_DIR$/src/test/java/salariati/test/ModifyEmployeeTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/salariati/test/SortedEmployeesTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/salariati/test/BigBangTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/salariati/controller/EmployeeController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/employees.txt" />
+        <option value="$PROJECT_DIR$/src/test/java/salariati/test/BigBangTest.java" />
       </list>
     </option>
   </component>
@@ -504,29 +494,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1527039325702</updated>
-      <workItem from="1527039331269" duration="3220000" />
+      <workItem from="1527039331269" duration="4663000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SortedEmployeesTest - 2018.05.23 at 04h 52m 35s.xml">
-      <configuration name="SortedEmployeesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SortedEmployeesTest - 2018.05.23 at 04h 52m 46s.xml">
-      <configuration name="SortedEmployeesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SortedEmployeesTest - 2018.05.23 at 04h 52m 57s.xml">
-      <configuration name="SortedEmployeesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BigBangTest_testCase - 2018.05.23 at 05h 06m 21s.xml">
-      <configuration name="BigBangTest.testCase" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BigBangTest - 2018.05.23 at 05h 06m 27s.xml">
-      <configuration name="BigBangTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BigBangTest - 2018.05.23 at 05h 06m 35s.xml">
-      <configuration name="BigBangTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BigBangTest_(1) - 2018.05.23 at 05h 08m 11s.xml">
       <configuration name="BigBangTest (1)" configurationId="JUnit" />
     </history-entry>
@@ -539,12 +511,31 @@
     <history-entry file="BigBangTest - 2018.05.23 at 05h 09m 50s.xml">
       <configuration name="BigBangTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BigBangTest - 2018.05.23 at 06h 13m 54s.xml">
+      <configuration name="BigBangTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BigBangTest - 2018.05.23 at 06h 14m 07s.xml">
+      <configuration name="BigBangTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BigBangTest - 2018.05.23 at 06h 15m 26s.xml">
+      <configuration name="BigBangTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BigBangTest - 2018.05.23 at 06h 16m 47s.xml">
+      <configuration name="BigBangTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BigBangTest - 2018.05.23 at 06h 16m 50s.xml">
+      <configuration name="BigBangTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BigBangTest - 2018.05.23 at 06h 16m 53s.xml">
+      <configuration name="BigBangTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3220000" />
+    <option name="totallyTimeSpent" value="4663000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -556,11 +547,11 @@
       <window_info anchor="right" id="Maven Projects" visible="true" weight="0.16897655" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.24357542" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.24357542" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="right" id="Database" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -626,30 +617,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/salariati/repository/implementations/EmployeeRepositoryFromFile.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/salariati/test/SortedEmployeesTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1581">
-          <caret line="106" selection-start-line="106" selection-end-line="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/salariati/controller/EmployeeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/employees.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="272">
+          <caret line="37" column="45" lean-forward="true" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/salariati/test/AddEmployeeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="629">
           <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -664,20 +644,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/salariati/test/SortedEmployeesTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/salariati/repository/implementations/EmployeeRepositoryFromFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="37" column="45" lean-forward="true" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="357">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/salariati/controller/EmployeeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/employees.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/salariati/test/BigBangTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="24" />
+        <state relative-caret-position="544">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

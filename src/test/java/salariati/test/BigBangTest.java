@@ -44,6 +44,7 @@ public class BigBangTest {
                     assertTrue(false);
                 }
             }
+            controller.deleteEmployee(newEmployee);
         } catch (EmployeeException e) {
             e.printStackTrace();
         }
