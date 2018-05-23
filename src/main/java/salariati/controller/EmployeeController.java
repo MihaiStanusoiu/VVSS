@@ -29,6 +29,7 @@ public class EmployeeController {
 	}
 	
 	public void modifyEmployee(Employee oldEmployee, Employee newEmployee) throws EmployeeException{
+		newEmployee.setId(oldEmployee.getId());
 		employeeRepository.modifyEmployee(oldEmployee, newEmployee);
 	}
 
